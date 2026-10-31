@@ -21,7 +21,8 @@ unhandled exception that Sentry reports as its own issue.
 python -m venv .venv && . .venv/bin/activate
 pip install -r requirements.txt -r requirements-dev.txt
 pytest
-SENTRY_DSN=... uvicorn app.main:app --port 8000
+cp .env.example .env   # then set SENTRY_DSN (Sentry → Project Settings → Client Keys)
+uvicorn app.main:app --port 8000 --env-file .env
 ```
 
 The Sentry release is `trace2pr-demo-api@<git sha>` (from `GIT_SHA`, or
