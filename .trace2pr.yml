@@ -1,0 +1,4 @@
+# Trace2PR repo config: the fix agent may never edit these paths.
+forbidden_paths:
+  - "requirements*.txt"
+  - "scripts/**"
