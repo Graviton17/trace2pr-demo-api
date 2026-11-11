@@ -42,3 +42,10 @@ def test_search_top(client):
     data = client.get("/search/top", params={"q": "gibson"}).json()
     assert data["top"]["id"] == "b2"
     assert data["total"] == 1
+
+
+def test_contact_card_no_phone(client):
+    response = client.get("/users/u2/contact")
+    assert response.status_code == 200
+    data = response.json()
+    assert data["phone"] is None

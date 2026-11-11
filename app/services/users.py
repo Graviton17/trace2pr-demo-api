@@ -6,5 +6,5 @@ def contact_card(user_id: str) -> dict:
     return {
         "name": user["name"],
         "email": user["email"],
-        "phone": user["phone"].replace(" ", ""),
+        "phone": user["phone"].replace(" ", "") if user["phone"] is not None else None,
     }
